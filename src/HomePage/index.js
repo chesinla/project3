@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Divider } from 'semantic-ui-react';
+import "./style.css"
 
 class Home extends Component {
     constructor(){

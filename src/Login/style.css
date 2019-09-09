@@ -1,0 +1,6 @@
+.loginpage {
+    background: #3494E6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #EC6EAD, #3494E6); 
+    background: linear-gradient(to right, #EC6EAD, #3494E6); 
+    height: 100vh;
+}

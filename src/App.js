@@ -4,7 +4,8 @@ import './App.css';
 import Login from './Login';
 import { Switch, Link, Route, NavLink } from 'react-router-dom'
 import Register from './CreateAccount';
-import Home from "./HomePage"
+import Home from "./HomePage";
+import Viewpage from "./ViewPage"
 
 
 class App extends Component {
@@ -75,9 +76,9 @@ class App extends Component {
         <NavLink exact to='/login'>Log In</NavLink>
         <NavLink exact to='/register'>Register</NavLink>
         <NavLink exact to='/home'>Home</NavLink>
-        <NavLink exact to='/'>Landing</NavLink>
+        <NavLink exact to='/viewpage'>Landing</NavLink>
         <Switch>
-          <Route exact path='/' render={() => <div>landing</div>} />
+          <Route exact path='/viewpage' render={() => <Viewpage/>} />
           <Route exact path="/login" render={()=> <Login  logIn={this.logIn}/>} />
           <Route exact path="/home" render={()=> <Home />} />
           <Route exact path="/register" render={()=> <Register register={this.register}/>} />

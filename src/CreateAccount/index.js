@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, Form, Grid, Header, Image, Message, Segment} from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom'
+import "./style.css"
 
 class Register extends Component {
   constructor(){
@@ -53,6 +54,7 @@ class Register extends Component {
   render(){
       console.log(this.state)
     return (
+     <div className="createAccount"> 
       <Grid textAlign='center' verticalAlign='middle' style={{ height: '100vh'}}>
         <Grid.Column style={{maxWidth: 450}}>
           <Header as='h2' textAlign='center'>
@@ -76,6 +78,7 @@ class Register extends Component {
           </Form>
         </Grid.Column>
       </Grid>
+     </div> 
       )
   }
 }
