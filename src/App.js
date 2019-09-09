@@ -73,10 +73,10 @@ class App extends Component {
   render(){
     return(
       <div>
-        <NavLink exact to='/login'>Log In</NavLink>
-        <NavLink exact to='/register'>Register</NavLink>
-        <NavLink exact to='/home'>Home</NavLink>
-        <NavLink exact to='/viewpage'>Landing</NavLink>
+        <NavLink className="loginNav" exact to='/login'>Log In</NavLink>
+        <NavLink className="registerNav" exact to='/register'>Register</NavLink>
+        <NavLink className="homeNav" exact to='/home'>Home</NavLink>
+        <NavLink className="viewStockNav" exact to='/viewpage'>About Chart Nest</NavLink>
         <Switch>
           <Route exact path='/viewpage' render={() => <Viewpage/>} />
           <Route exact path="/login" render={()=> <Login  logIn={this.logIn}/>} />

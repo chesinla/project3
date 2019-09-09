@@ -32,6 +32,6 @@
   }
 }
 
-
-
-
+.loginNav, .registerNav, .homeNav, .viewStockNav {
+  padding: 10px;
+}
