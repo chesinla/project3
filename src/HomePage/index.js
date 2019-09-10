@@ -14,7 +14,8 @@ class Home extends Component {
             email: '',
             currentStock: null,
             stock: '',
-            list:[]
+            list:[],
+            stockToShow: []
         }
     
     }
@@ -40,10 +41,10 @@ class Home extends Component {
 
 addItem = async (e) => {
     e.preventDefault()
-    const stockSearch = await (await fetch()).json()
-    const symbol = stockSearch.bestMatches[0]['1. symbol']
-    const theStock = await (await fetch()).json()
-    this.setState({stockToShow: theStock}) 
+    const stockSearch = await (await fetch(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${this.state.stock}&apikey=1VMZ0SIMGMJX4FUO`)).json()
+    // const symbol = stockSearch.bestMatches[0]['1. symbol']
+    // const theStock = await (await fetch(`https://api-v2.intrinio.com/companies/${symbol}?api_key=Ojk4ODRjMmVmNTRiNWIyOTMyZjY3Njg2MzdiNWQ4MTdj `)).json()
+    this.setState({stockToShow: [stockSearch.bestMatches[0]]}) 
 }
 
 render(){
@@ -77,25 +78,22 @@ render(){
                 </button>
             </form>
             </section>
-            <section className="section">
+            {/* <section className="section">
             <ul>
-                {
-                  this.state.list[0]
-                   &&
-                   <div>
-                       <div>{this.state.list[0]['1. symbol']}</div>
-                       <div>{this.state.list[0]['2. name']}</div>
-                       <div>{this.state.list[0]['3. type']}</div>
-                       <div>{this.state.list[0]['4. region']}</div>
-                       <div>{this.state.list[0]['5. marketOpen']}</div>
-                       <div>{this.state.list[0]['6. marketClose']}</div>
-                       <div>{this.state.list[0]['7. timezone']}</div>
-                       <div>{this.state.list[0]['8. currency']}</div>
-                       <div>{this.state.list[0]['9. matchScore']}</div>
-                   </div>  
-                }
             </ul>
-            </section>
+            </section> */}
+            {/* {
+                Object.entries(this.state.stockToShow).map(s =>
+                    <div>{s[0]}: {s[1]}</div>
+                )
+            } */}
+            {
+                this.state.stockToShow.map(s => 
+                    Object.entries(s).map(stock =>
+                        <div>{stock[0]}: {stock[1]}</div>
+                    )
+                )
+            }
         </div>
         </div>
     )
